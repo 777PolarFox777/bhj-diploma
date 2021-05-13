@@ -53,13 +53,17 @@ class AccountsWidget {
    * метода renderItem()
    * */
   update() {
-    User.current()
-    if(User.current) {
-      Account.list()
-      if(Account.list) {
+    const user = User.current()
+    if(user) {
+      Account.list(undefined, (err, response) => {
+        if (err) {
+          console.error(err);
+
+          return;
+        }
         this.clear();
-        this.renderItem(Account.list)
-      }
+        this.renderItem(response.data)
+      })
     }
   }
 
@@ -95,6 +99,7 @@ class AccountsWidget {
    * item - объект с данными о счёте
    * */
   getAccountHTML(item){
+    console.log(item);
     const newAccount = document.createElement('li');
     newAccount.classList.add('active', 'account');
     newAccount.setAttribute('data-id', item.id)
@@ -107,6 +112,8 @@ class AccountsWidget {
     accHref.append(accName);
     accHref.append(accAmount);
     newAccount.append(accHref);
+
+    return newAccount;
   }
 
   /**
@@ -116,6 +123,8 @@ class AccountsWidget {
    * и добавляет его внутрь элемента виджета
    * */
   renderItem(data){
-    this.element.append(this.getAccountHTML(data))
+    data.forEach((item) => {
+      this.element.append(this.getAccountHTML(item))
+    })
   }
 }

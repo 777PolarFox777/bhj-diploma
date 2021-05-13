@@ -5,6 +5,20 @@
       "email": "demo@demo",
       "password": "demo",
       "id": "1"
+    },
+    {
+      "email": "undefined",
+      "password": "undefined",
+      "id": "3cba290koncr22y"
+    },
+    {
+      "id": "3cba8k4kond0bos"
+    },
+    {
+      "name": "Андрей",
+      "email": "a@d.ru",
+      "password": "123456",
+      "id": "3cba7rokond2pvq"
     }
   ],
   "accounts": [
@@ -22,6 +36,11 @@
       "name": "Бизнес",
       "user_id": "1",
       "id": "3"
+    },
+    {
+      "name": "Bill blyat",
+      "user_id": "3cba7rokond2pvq",
+      "id": "3cba328kondheu9"
     }
   ],
   "transactions": [
